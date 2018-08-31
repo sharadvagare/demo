@@ -1,0 +1,32 @@
+
+<!-- <div *ngFor="let val of hobbies;" >
+    <div>{{val}}</div>
+</div> -->
+<button (click)="tobbleHobbies()">{{ showHobbies ? "Hide Hobbies" : "Show Hobbies" }}</button>
+<div *ngIf="showHobbies">
+<div *ngFor="let val of hobbies">
+  <strong>{{val}}</strong>
+</div>
+<ul>
+  <li *ngFor="let val of hobbies; let i = index">{{val}}
+    <button (click)="deleteHobby(i)"> x </button>
+  </li>
+  <li>{{name}}</li>
+  <form (submit)="addHobby(hobby.value)">
+      <label>Add Hobby: </label>
+      <input type="text" #hobby />
+  </form>
+</ul>
+</div>
+
+<form>
+    <label>Name: </label> <br>
+    <input type="text" name="name" [(ngModel)]="name"/>
+</form>
+<hr>
+<h3>Posts</h3>
+<div *ngFor='let post of posts'>
+    <h3>{{post.id}}</h3>
+    <h3>{{post.title}}</h3>
+    <p>{{post.body}}</p>
+</div>
